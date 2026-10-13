@@ -1,0 +1,14 @@
+{
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect"
+    },
+    "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}
