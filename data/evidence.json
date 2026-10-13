@@ -1,0 +1,31 @@
+{
+  "system": "DEMO-FED-CLOUD-01",
+  "as_of": "2026-10-13",
+  "records": [
+    {
+      "control_id": "AC-2",
+      "evidence_id": "SYN-REV-001",
+      "access_review_age_days": 45
+    },
+    {
+      "control_id": "IA-2",
+      "evidence_id": "SYN-IAM-002",
+      "privileged_mfa_enabled": true
+    },
+    {
+      "control_id": "CM-6",
+      "evidence_id": "SYN-CFG-003",
+      "baseline_deviations": 3
+    },
+    {
+      "control_id": "RA-5",
+      "evidence_id": "SYN-SCAN-004",
+      "last_vulnerability_scan": "2026-08-20"
+    },
+    {
+      "control_id": "AU-6",
+      "evidence_id": "SYN-LOG-005",
+      "log_review_age_days": 4
+    }
+  ]
+}
