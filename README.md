@@ -64,7 +64,5 @@ The evaluator supports `equals`, `max`, `min`, and `age_days_max`. Missing/malfo
 - STIG CKL/JSON parsing, vulnerability prioritization, and evidence freshness dashboards
 - Human approval workflow for risk acceptance and closure verification
 
-## Resume-ready wording (after running and understanding it)
-> Built a Python-based RMF/GRC assessment prototype that maps synthetic NIST SP 800-53 control expectations to technical evidence, detects exceptions, generates draft POA&M records, and validates logic through automated CI tests.
 
 **License:** MIT. See [LICENSE](LICENSE).
