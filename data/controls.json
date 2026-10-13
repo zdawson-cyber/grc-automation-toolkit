@@ -1,0 +1,55 @@
+{
+  "framework": "NIST SP 800-53 Rev. 5 (illustrative engineering mappings)",
+  "controls": [
+    {
+      "id": "AC-2",
+      "title": "Account Management",
+      "evidence_key": "access_review_age_days",
+      "operator": "max",
+      "expected": 90,
+      "severity": "moderate",
+      "owner": "IAM Team",
+      "remediation": "Complete and document access review."
+    },
+    {
+      "id": "IA-2",
+      "title": "Identification and Authentication",
+      "evidence_key": "privileged_mfa_enabled",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "owner": "Identity Team",
+      "remediation": "Enforce MFA for privileged identities."
+    },
+    {
+      "id": "CM-6",
+      "title": "Configuration Settings",
+      "evidence_key": "baseline_deviations",
+      "operator": "max",
+      "expected": 0,
+      "severity": "moderate",
+      "owner": "Platform Team",
+      "remediation": "Review, approve, or remediate baseline deviations."
+    },
+    {
+      "id": "RA-5",
+      "title": "Vulnerability Monitoring and Scanning",
+      "evidence_key": "last_vulnerability_scan",
+      "operator": "age_days_max",
+      "expected": 30,
+      "severity": "high",
+      "owner": "Vulnerability Team",
+      "remediation": "Run an authenticated scan and validate its coverage."
+    },
+    {
+      "id": "AU-6",
+      "title": "Audit Record Review",
+      "evidence_key": "log_review_age_days",
+      "operator": "max",
+      "expected": 7,
+      "severity": "moderate",
+      "owner": "SOC Team",
+      "remediation": "Complete and document recurring log review."
+    }
+  ]
+}
