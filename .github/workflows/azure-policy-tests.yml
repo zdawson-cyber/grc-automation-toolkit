@@ -1,0 +1,24 @@
+name: Azure policy as code (offline synthetic tests)
+on:
+  push:
+    paths:
+      - "azure-policy-as-code/**"
+      - ".github/workflows/azure-policy-tests.yml"
+  pull_request:
+    paths:
+      - "azure-policy-as-code/**"
+      - ".github/workflows/azure-policy-tests.yml"
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate policy definitions and test mock outcomes
+        run: python -m unittest discover -s azure-policy-as-code/tests -v
+      - name: Run local compliance simulation
+        run: python azure-policy-as-code/scripts/validate.py --output /tmp/azure-policy-report.json
