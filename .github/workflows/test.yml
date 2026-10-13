@@ -1,0 +1,22 @@
+name: GRC evaluator tests
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate synthetic assessment finding count
+        run: |
+          set +e
+          python -m src.assess --controls data/controls.json --evidence data/evidence.json --output output
+          status=$?
+          set -e
+          test "$status" -eq 2
+          python -c 'import json; x=json.load(open("output/assessment_report.json")); assert x["summary"] == {"passed": 3, "failed": 2, "total": 5}'
