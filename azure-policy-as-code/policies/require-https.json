@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "displayName": "Require secure transfer on Storage Accounts",
+    "description": "Portfolio guardrail for require secure transfer on storage accounts. Illustrative mapping: SC-8.",
+    "mode": "All",
+    "metadata": {
+      "category": "Security",
+      "version": "1.0.0",
+      "controlReference": "SC-8"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Audit before considering enforcement."
+        },
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Audit"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly",
+            "notEquals": true
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
