@@ -1,0 +1,27 @@
+{
+  "resources": [
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-demo/providers/Microsoft.Storage/storageAccounts/sa-secure",
+      "type": "Microsoft.Storage/storageAccounts",
+      "properties": {
+        "supportsHttpsTrafficOnly": true,
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": false
+      }
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-demo/providers/Microsoft.Storage/storageAccounts/sa-legacy",
+      "type": "Microsoft.Storage/storageAccounts",
+      "properties": {
+        "supportsHttpsTrafficOnly": false,
+        "allowBlobPublicAccess": true,
+        "allowSharedKeyAccess": true
+      }
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-demo/providers/Microsoft.Compute/virtualMachines/vm-demo",
+      "type": "Microsoft.Compute/virtualMachines",
+      "properties": {}
+    }
+  ]
+}
